@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Place your CSS code here */
+
+        /* General Page Styles */
+        body {
+            font-family: 'Arial, sans-serif';
+            background-color: #f0e5de;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        section {
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Landing Page */
+        .landing-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e05858;
+        }
+
+        /* Other styles (for each chapter, animations, etc.) go here */
+    </style>
+</head>
+
+
+<body>
+    <!-- Landing Page -->
+    <section class="landing-page" id="landing">
+        <h1>Our Love Story</h1>
+        <button onclick="nextChapter('first-meeting')">Begin the Journey</button>
+    </section>
+
+    <!-- Chapter 1: The First Meeting -->
+    <section class="story-section" id="first-meeting" style="display:none;">
+        <div class="background-park">
+            <div class="characters">
+                <img src="boy.png" alt="You" class="character boy">
+                <img src="girl.png" alt="Her" class="character girl">
+            </div>
+            <div class="speech-bubble">
+                <p>Hi, I'm [Your Name]</p>
+                <p>Hi, I'm [Her Name]</p>
+            </div>
+        </div>
+        <button onclick="nextChapter('first-date')">The Journey Continues...</button>
+    </section>
+
+    <!-- Chapter 2: The First Date -->
+    <section class="story-section" id="first-date" style="display:none;">
+        <div class="background-date">
+            <div class="table-setting">
+                <img src="candle.png" alt="Candle" class="candle">
+            </div>
+            <p class="chapter-message">Our first date was magical, just like this night...</p>
+        </div>
+        <button onclick="nextChapter('adventures')">Next Chapter</button>
+    </section>
+
+    <!-- Chapter 3: Adventures Together -->
+    <section class="story-section" id="adventures" style="display:none;">
+        <div class="adventures-slideshow">
+            <div class="adventure-slide">
+                <img src="mountains.jpg" alt="Mountains">
+                <p>Remember the hike?</p>
+            </div>
+            <div class="adventure-slide">
+                <img src="beach.jpg" alt="Beach">
+                <p>The beach day was unforgettable...</p>
+            </div>
+            <div class="adventure-slide">
+                <img src="city.jpg" alt="City">
+                <p>Exploring the city with you...</p>
+            </div>
+        </div>
+        <button onclick="nextChapter('special-moments')">Keep Going</button>
+    </section>
+
+    <!-- Chapter 4: Special Moments -->
+    <section class="story-section" id="special-moments" style="display:none;">
+        <div class="polaroid-gallery">
+            <div class="polaroid" onclick="showMessage('moment1')">
+                <img src="moment1.jpg" alt="Memory 1">
+                <p>This was a perfect day...</p>
+            </div>
+            <div class="polaroid" onclick="showMessage('moment2')">
+                <img src="moment2.jpg" alt="Memory 2">
+                <p>Your smile lit up my world...</p>
+            </div>
+        </div>
+        <button onclick="nextChapter('birthday')">Final Chapter</button>
+    </section>
+
+    <!-- Chapter 5: Happy Birthday -->
+    <section class="story-section" id="birthday" style="display:none;">
+        <div class="birthday-scene">
+            <h2>Happy Birthday, [Her Name]!</h2>
+            <button onclick="lightCandles()">Light the Candles</button>
+            <div id="candles" class="candles"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+  function nextChapter(chapterId) {
+    // Hide current section and show the next one
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => section.style.display = 'none');
+    
+    document.getElementById(chapterId).style.display = 'block';
+}
+
+function lightCandles() {
+    const candlesDiv = document.getElementById('candles');
+    candlesDiv.innerHTML = "🕯️🕯️🕯️🕯️🕯️";
+    setTimeout(() => {
+        alert("Happy Birthday, my love!");
+    }, 1000);
+}
+</script>
+
+</html>
